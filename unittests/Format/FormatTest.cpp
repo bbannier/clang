@@ -10989,6 +10989,17 @@ TEST_F(FormatTest, ConfigurableContinuationIndentWidth) {
             format("int i = longFunction(arg);", SixIndent));
 }
 
+TEST_F(FormatTest, ConfigurableWrappedAssignmentIndentWidth) {
+  FormatStyle MesosIndent = getGoogleStyleWithColumns(15);
+  MesosIndent.ContinuationIndentWidth = 4;
+  MesosIndent.WrappedAssignmentIndentWidth = -2;
+
+  EXPECT_EQ("int i =\n"
+            "  longFunction(\n"
+            "      arg);",
+            format("int i = longFunction(arg);", MesosIndent));
+}
+
 TEST_F(FormatTest, SpacesInAngles) {
   FormatStyle Spaces = getLLVMStyle();
   Spaces.SpacesInAngles = true;

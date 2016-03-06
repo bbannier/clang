@@ -727,6 +727,8 @@ the configuration (without a prefix: ``Auto``).
     Use tabs whenever we need to fill whitespace that spans at least from
     one tab stop to the next one.
 
+**WrappedAssignmentIndentWidth** (``unsigned``)
+  The number of columns a wrapped assignment is indented relative to ``ContinuationIndentWidth``.
 
 
 .. END_FORMAT_STYLE_OPTIONS

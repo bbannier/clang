@@ -310,6 +310,9 @@ struct FormatStyle {
   /// \brief Indent width for line continuations.
   unsigned ContinuationIndentWidth;
 
+  /// \brief Indent width for wrapped assignment relative to ContinuationIndentWidth.
+  int WrappedAssignmentIndentWidth;
+
   /// \brief If ``true``, format braced lists as best suited for C++11 braced
   /// lists.
   ///
@@ -685,7 +688,8 @@ struct FormatStyle {
            SpacesInSquareBrackets == R.SpacesInSquareBrackets &&
            Standard == R.Standard && TabWidth == R.TabWidth &&
            UseTab == R.UseTab &&
-           JavaScriptQuotes == R.JavaScriptQuotes;
+           JavaScriptQuotes == R.JavaScriptQuotes &&
+           WrappedAssignmentIndentWidth == R.WrappedAssignmentIndentWidth;
   }
 };
 

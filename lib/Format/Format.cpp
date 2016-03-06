@@ -344,6 +344,8 @@ template <> struct MappingTraits<FormatStyle> {
     IO.mapOptional("TabWidth", Style.TabWidth);
     IO.mapOptional("UseTab", Style.UseTab);
     IO.mapOptional("JavaScriptQuotes", Style.JavaScriptQuotes);
+    IO.mapOptional("WrappedAssignmentIndentWidth",
+                   Style.WrappedAssignmentIndentWidth);
   }
 };
 
@@ -552,6 +554,7 @@ FormatStyle getLLVMStyle() {
 
   LLVMStyle.DisableFormat = false;
   LLVMStyle.SortIncludes = true;
+  LLVMStyle.WrappedAssignmentIndentWidth = 0;
 
   return LLVMStyle;
 }

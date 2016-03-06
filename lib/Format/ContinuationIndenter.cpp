@@ -588,7 +588,8 @@ unsigned ContinuationIndenter::getNewLineColumn(const LineState &State) {
   // If we are continuing an expression, we want to use the continuation indent.
   unsigned ContinuationIndent =
       std::max(State.Stack.back().LastSpace, State.Stack.back().Indent) +
-      Style.ContinuationIndentWidth;
+      Style.ContinuationIndentWidth +
+      Previous.is(tok::equal) * Style.WrappedAssignmentIndentWidth;
   const FormatToken *PreviousNonComment = Current.getPreviousNonComment();
   const FormatToken *NextNonComment = Previous.getNextNonComment();
   if (!NextNonComment)
