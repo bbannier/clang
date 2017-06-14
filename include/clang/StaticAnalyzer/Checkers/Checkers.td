@@ -77,6 +77,8 @@ def MPI : Package<"mpi">, InPackage<OptIn>;
 def LLVM : Package<"llvm">;
 def Debug : Package<"debug">;
 
+def Mesos : Package<"mesos">;
+
 //===----------------------------------------------------------------------===//
 // Core Checkers.
 //===----------------------------------------------------------------------===//
@@ -593,6 +595,15 @@ def LLVMConventionsChecker : Checker<"Conventions">,
   InPackage<LLVM>,
   HelpText<"Check code for LLVM codebase conventions">,
   DescFile<"LLVMConventionsChecker.cpp">;
+
+//===----------------------------------------------------------------------===//
+// Checkers for LLVM development.
+//===----------------------------------------------------------------------===//
+
+def MesosOptionChecker : Checker<"option">,
+  InPackage<Mesos>,
+  HelpText<"Checks for correct usage of Option values.">,
+  DescFile<"MesosOptionChecker.cpp">;
 
 //===----------------------------------------------------------------------===//
 // Debugging checkers (for analyzer development).
